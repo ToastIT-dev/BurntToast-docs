@@ -10,6 +10,6 @@
   * [Add-BTHeroImage](commands/add-btheroimage.md)
   * [Add-BTImage](commands/add-btimage.md)
   * [Add-BTText](commands/add-bttext.md)
-  * [New-BTContentBuilder](commands/New-BTContentBuilder.md)
-  * [Show-BTNotification](commands/Show-BTNotification.md)
+  * [New-BTContentBuilder](commands/new-btcontentbuilder.md)
+  * [Show-BTNotification](commands/show-btnotification.md)
 * [Changelog](changelog.md)
