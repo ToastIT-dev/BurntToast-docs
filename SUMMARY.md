@@ -11,6 +11,6 @@
   * [Add-BTImage](commands/add-btomage.md)
   * [Add-BTText](commands/add-bttext.md)
   * [New-BTContentBuilder](commands/new-btcontentbuilder.md)
-  * [Add-BTAppLogo](commands/show-btnotification.md)
+  * [Show-BTNotification](commands/show-btnotification.md)
 * [Changelog](changelog.md)
 
