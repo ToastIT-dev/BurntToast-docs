@@ -7,7 +7,7 @@ Create a toast builder object.
 ## SYNTAX
 
 ```powershell
-New-BTContentBuilder [[-Group] <String>] [[-Tag] <String>] [-WhatIf] [-Confirm] [<CommonParameters>]
+New-BTContentBuilder [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -33,32 +33,6 @@ $Builder = Builder
 This example creates a new toast content builder object using the Builder alias and storing it in a variable named $Builder.
 
 ## PARAMETERS
-
-### -Group
-
-```yaml
-Type: String
-Parameter Sets: (All)
-
-Required: False
-Position: 1
-Default value: BurntToast
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Tag
-
-```yaml
-Type: String
-Parameter Sets: (All)
-
-Required: False
-Position: 2
-Default value: [Guid]::NewGuid().ToString()
-Accept pipeline input: False
-Accept wildcard characters: False
-```
 
 ### -WhatIf
 
