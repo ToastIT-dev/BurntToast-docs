@@ -9,8 +9,8 @@ Add text to the toast.
 ### CustomText (Default)
 
 ```powershell
-Add-BTText -ContentBuilder <ToastContentBuilder> [-Text] <String[]> [-MaxLines <Int32>] [-Language <String>]
- [-PassThru] [<CommonParameters>]
+Add-BTText -ContentBuilder <ToastContentBuilder> [-Text] <String[]> [-MaxLines <Int32>] [-Bindable]
+ [-Language <String>] [-PassThru] [<CommonParameters>]
 ```
 
 ### AttributionText
@@ -125,6 +125,15 @@ $Builder | Add-BTText -Text 'Example Toast Source' -Attribution
 
 This example add attribution test to a toast notification.
 
+### EXAMPLE 10
+
+```powershell
+$Builder = New-BTContentBuilder
+$Builder | Add-BTText -Text 'Placeholder String' -Bindable
+```
+
+This example adds a bindable string to a toast notification that should map to a key/value pair in the toast's data binding property.
+
 ## PARAMETERS
 
 ### -ContentBuilder
@@ -171,6 +180,22 @@ Aliases:
 Required: False
 Position: Named
 Default value: 0
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Bindable
+
+Specifies that the text should be considered the name of a bindable string to be used when updating information on a toast notification.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: CustomText
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

@@ -2,22 +2,44 @@
 
 ## SYNOPSIS
 
-Add an image to the body of a toaster notification.
+Add an image to a toast notification.
 
 ## SYNTAX
 
+### AdaptiveImage (Default)
+
 ```powershell
-Add-BTImage -ContentBuilder <ToastContentBuilder> [[-Source] <String>] [-Crop <AdaptiveImageCrop>]
+Add-BTImage -ContentBuilder <ToastContentBuilder> [[-Source] <String>] [-Crop {Default | None | Circle}]
  [-AlternateText <String>] [-IgnoreCache] [-PassThru] [<CommonParameters>]
+```
+
+### AppLogo
+
+```powershell
+Add-BTImage -ContentBuilder <ToastContentBuilder> [[-Source] <String>] [-Crop {Default | None | Circle}]
+ [-AlternateText <String>] [-IgnoreCache] -AppLogo [-PassThru] [<CommonParameters>]
+```
+
+### HeroImage
+
+```powershell
+Add-BTImage -ContentBuilder <ToastContentBuilder> [[-Source] <String>] [-AlternateText <String>] [-IgnoreCache]
+ -HeroImage [-PassThru] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
 
-The Add-BTImage function adds an image to the body of a toast notification.
+The Add-BTImage function adds one of three image types to a toast notification.
 
-Multiple images can be added by calling the function multiple times. The images are displayed in the order in which they are added.
+Multiple images can be added to the body of a toast notification by calling the function without the AppLogo or HeroImage switches multiple times. These images are displayed in the order in which they are added.
 
 Any images added to the body of a toast notification are displayed after the text of the toast notification.
+
+By using the AppLogo switch, this function specifies an image to be displayed on a toast notification as the app logo
+
+Prior to Windows 10 20H2 this app logo would replace the smaller icon that represents the source of a notification, but from 20H2 it is displayed in addition to the icon.
+
+Finally, using the HeroImage switch, this function specifies an image to be displayed across the top of a toast notification.
 
 ## EXAMPLES
 
@@ -100,6 +122,24 @@ This example a image alongside three custom text elements to a toast content bui
 
 The image is displayed after the text elements, despite being added first.
 
+### EXAMPLE 9
+
+```powershell
+$Builder = New-BTContentBuilder
+Add-BTImage -ContentBuilder $Builder -Source 'C:\Temp\LocalImage.png' -AppLogo
+```
+
+This example adds a local image as the app logo on the toast notification using a toast content builder object.
+
+### EXAMPLE 10
+
+```powershell
+$Builder = New-BTContentBuilder
+Add-BTImage -ContentBuilder $Builder -Source 'C:\Temp\LocalImage.png' -HeroImage
+```
+
+This example adds a local image as the hero image on the toast notification using a toast content builder object.
+
 ## PARAMETERS
 
 ### -ContentBuilder
@@ -140,7 +180,7 @@ Specify how the image should be cropped.
 
 ```yaml
 Type: AdaptiveImageCrop
-Parameter Sets: (All)
+Parameter Sets: AdaptiveImage, AppLogo
 Aliases:
 Accepted values: Default, None, Circle
 
@@ -177,6 +217,38 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -AppLogo
+
+Specify that the image should be used as the app logo.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: AppLogo
+Aliases:
+
+Required: True
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -HeroImage
+
+Specify that the image should be used as the hero image.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: HeroImage
+Aliases:
+
+Required: True
 Position: Named
 Default value: False
 Accept pipeline input: False
