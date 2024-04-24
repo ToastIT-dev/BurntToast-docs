@@ -2,7 +2,18 @@
     "plugins": [ "versions" ],
     "pluginsConfig": {
         "versions": {
-            "type": "branches"
+            "gitbookConfigURL": "https://raw.githubusercontent.com/ToastIT-dev/BurntToast-docs/master/book.json",
+            "options": [
+                {
+                    "value": "https://docs.toastit.dev/v/v0/",
+                    "text": "v0"
+                },
+                {
+                    "value": "https://docs.toastit.dev/v/v1/",
+                    "text": "v1",
+                    "selected": true
+                }
+            ]
         }
     }
 }
